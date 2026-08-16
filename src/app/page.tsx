@@ -1,5 +1,5 @@
 import ProfileHeader from "@/components/ProfileHeader";
-import LinkCard from "@/components/LinkCard";
+import LinkList from "@/components/LinkList";
 
 const profile = {
   name: "김C발",
@@ -8,9 +8,9 @@ const profile = {
 };
 
 const links = [
-  { label: "GitHub", href: "https://github.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "Blog", href: "https://example.com" },
+  { id: "github", label: "GitHub", href: "https://github.com" },
+  { id: "linkedin", label: "LinkedIn", href: "https://linkedin.com" },
+  { id: "blog", label: "Blog", href: "https://example.com" },
 ];
 
 export default function Home() {
@@ -18,11 +18,7 @@ export default function Home() {
     <div className="flex flex-1 items-center justify-center bg-gradient-to-b from-[#fdf6ec] via-[#fdecdb] to-[#ffe1c7] px-6 py-16 sm:py-20 dark:from-[#1c1512] dark:via-[#241a15] dark:to-[#2c1f17]">
       <main className="flex w-full max-w-xs flex-col items-center gap-10">
         <ProfileHeader name={profile.name} bio={profile.bio} avatarUrl={profile.avatarUrl} />
-        <div className="flex w-full flex-col gap-4">
-          {links.map((link) => (
-            <LinkCard key={link.label} label={link.label} href={link.href} />
-          ))}
-        </div>
+        <LinkList links={links} />
       </main>
     </div>
   );
